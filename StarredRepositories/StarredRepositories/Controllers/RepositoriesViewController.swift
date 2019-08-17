@@ -27,12 +27,13 @@ class RepositoriesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindContent()
-        viewModel.loadContent()
     }
     
     // MARK: - Bind
     private func bindContent() {
         repositoryView.bindTable(viewModel.repositoryObservable)
+        repositoryView.bindModelState(viewModel.stateDriver)
+        viewModel.bindViewState(repositoryView.stateObservable)
     }
 }
 

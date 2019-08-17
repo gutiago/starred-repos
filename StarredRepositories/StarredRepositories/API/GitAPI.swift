@@ -40,7 +40,7 @@ enum GitAPI: TargetType {
     }
     
     var headers: [String : String]? {
-        return ["Content-Type": "application/json"]
+        return ["Content-Type": "application/json", "User-Agent": "request"]
     }
     
     var validationType: ValidationType {

@@ -63,7 +63,7 @@ class RepositoryCell: UITableViewCell {
     }
     
     private func setupLayout() {
-        infoStack.spacing = 5.0
+        infoStack.spacing = 3.0
         infoStack.axis = .vertical
         
         starStack.alignment = .center

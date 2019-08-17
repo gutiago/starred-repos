@@ -13,9 +13,20 @@ import RxCocoa
 import RxDataSources
 
 class RepositoryView: UIView {
-
-    let tableView = UITableView()
-    let ivLoading: UIImageView = {
+    
+    enum ViewState {
+        case refresh, loadMore, tryAgain
+    }
+    
+    var stateObservable: Observable<ViewState> {
+        return viewState.asObservable()
+    }
+    
+    private let viewState = PublishSubject<ViewState>()
+    
+    private let tableView = UITableView()
+    private let vNoInternet = NoInternetView()
+    private let ivLoading: UIImageView = {
         let image = UIImage(named: "ic-loading")
         return UIImageView(image: image)
     }()
@@ -35,11 +46,21 @@ class RepositoryView: UIView {
     private func commonInit() {
         backgroundColor = .white
         createSubviews()
+        bindOffset()
     }
     
     // MARK: - Layout
     private func createSubviews() {
+        setupSubviews()
         
+        self.addSubview(tableView)
+        self.addSubview(ivLoading)
+        self.addSubview(vNoInternet)
+        
+        addConstraints()
+    }
+    
+    private func setupSubviews() {
         tableView.register(RepositoryCell.self, forCellReuseIdentifier: RepositoryCell.Identifier)
         tableView.rowHeight = 80.0
         tableView.estimatedRowHeight = 80.0
@@ -49,10 +70,12 @@ class RepositoryView: UIView {
         ivLoading.isHidden = true
         ivLoading.contentMode = .scaleAspectFit
         
-        self.addSubview(tableView)
-        self.addSubview(ivLoading)
-        
-        addConstraints()
+        vNoInternet.isHidden = true
+        vNoInternet.layer.shadowRadius = 15.0
+        vNoInternet.layer.shadowColor = UIColor.black.cgColor
+        vNoInternet.layer.shadowOpacity = 0.15
+        vNoInternet.layer.cornerRadius = 20.0
+        vNoInternet.btnNoInternet.addTarget(self, action: #selector(tryAgainPressed), for: .touchUpInside)
     }
     
     private func addConstraints() {
@@ -68,19 +91,81 @@ class RepositoryView: UIView {
             maker.width.equalTo(20.0)
             maker.height.equalTo(20.0)
         }
+        
+        vNoInternet.snp.makeConstraints { (maker) in
+            maker.centerY.equalTo(self)
+            maker.centerX.equalTo(self)
+            maker.width.equalTo(self).inset(20.0).priority(999)
+        }
+    }
+    
+    //MARK: - Actions
+    @objc private func tryAgainPressed() {
+        self.viewState.onNext(.tryAgain)
     }
     
     // MARK: - Bind
-    var repo = [Repository]()
+    
     func bindTable(_ observable: Observable<[Repository]>) {
         observable.bind(to: tableView
-                .rx
-                .items(cellIdentifier: RepositoryCell.Identifier,
-                       cellType: RepositoryCell.self)) {
-                        _, repository, cell in
-                        cell.configure(repository)
+            .rx
+            .items(cellIdentifier: RepositoryCell.Identifier,
+                   cellType: RepositoryCell.self)) {
+                    _, repository, cell in
+                    cell.configure(repository)
             }
             .disposed(by: disposeBag)
     }
-
+    
+    func bindModelState(_ driver: Driver<State>) {
+        driver
+            .map({ [unowned self] in self.isLoadingHidden(forState: $0) })
+            .drive(ivLoading.rx.isHidden)
+            .disposed(by: disposeBag)
+        
+        driver
+            .drive(onNext: { [unowned self] (state) in
+                self.isLoadingHidden(forState: state) ? self.ivLoading.stopRotating() : self.ivLoading.rotate()
+            })
+            .disposed(by: disposeBag)
+        
+        driver
+            .map({ $0 != .failed })
+            .drive(vNoInternet.rx.isHidden)
+            .disposed(by: disposeBag)
+    }
+    
+    private func bindOffset() {
+        tableView.rx
+            .contentOffset
+            .asDriver()
+            .drive(onNext: { [unowned self] (offSet) in
+                
+                if self.isNearBottomEdge(contentOffset: offSet) {
+                    self.viewState.onNext(.loadMore)
+                } else if self.isSupposedToRefresh(contentOffset: offSet) {
+                    self.viewState.onNext(.refresh)
+                }
+                
+            }).disposed(by: disposeBag)
+    }
+    
+    private func isLoadingHidden(forState state: State) -> Bool {
+        let isLoading = (state == .loading)
+        let isEmptyTable = (tableView.numberOfRows(inSection: 0) == 0)
+        let showLoading = isLoading && isEmptyTable
+        return !showLoading
+    }
+    
+    private func isNearBottomEdge(contentOffset: CGPoint) -> Bool {
+        let contentSize = tableView.contentSize
+        let calculatedSize = contentOffset.y + self.frame.size.height
+        return calculatedSize > contentSize.height
+    }
+    
+    private func isSupposedToRefresh(contentOffset: CGPoint) -> Bool {
+        let edgeOffset: CGFloat = -50.0
+        return contentOffset.y < edgeOffset
+    }
+    
 }

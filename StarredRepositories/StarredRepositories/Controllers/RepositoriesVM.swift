@@ -9,15 +9,19 @@
 import RxSwift
 import RxCocoa
 
+enum State {
+    case initial, loading, loaded, failed
+}
+
 class RepositoriesVM: NSObject {
-    
-    enum State {
-        case initial, loading, loaded, failed
-    }
     
     // MARK: - Output
     var repositoryObservable: Observable<[Repository]> {
         return repositories.asObservable()
+    }
+    
+    var stateDriver: Driver<State> {
+        return state.asDriver()
     }
     
     private let repositories = BehaviorRelay<[Repository]>(value: [])
@@ -32,7 +36,16 @@ class RepositoriesVM: NSObject {
     private var isLoading = false
     
     // MARK: - Load
-    func loadContent() {
+    func bindViewState(_ observable: Observable<RepositoryView.ViewState>) {
+        loadContent()
+        
+        observable.subscribe(onNext: { [unowned self] (state) in
+            self.performAction(forViewState: state)
+        })
+        .disposed(by: disposeBag)
+    }
+    
+    private func loadContent() {
         guard shouldLoadMore() else {
             return
         }
@@ -50,6 +63,19 @@ class RepositoriesVM: NSObject {
     }
     
     // MARK: - Aux
+    private func performAction(forViewState state: RepositoryView.ViewState) {
+        switch state {
+        case .loadMore:
+            self.currentPage += 1
+            self.loadContent()
+        case .refresh:
+            self.currentPage = 1
+            self.loadContent()
+        default:
+            self.loadContent()
+        }
+    }
+    
     private func shouldLoadMore() -> Bool {
         let reachedThreshold = self.repositories.value.count >= MAX_SEARCH_THRESHOLD
         let isLoading = (state.value == .loading)
@@ -57,7 +83,14 @@ class RepositoriesVM: NSObject {
     }
     
     private func handleLoadSuccess(_ repos: [Repository]) {
-        let content = repositories.value + repos
+        let content: [Repository]
+        
+        if currentPage == 1 {
+            content = repos
+        } else {
+            content = repositories.value + repos
+        }
+        
         repositories.accept(content)
         state.accept(.loaded)
     }
@@ -67,6 +100,8 @@ class RepositoriesVM: NSObject {
         
         if repositories.value.count == 0 {
             state.accept(.failed)
+        } else {
+            state.accept(.initial)
         }
     }
     
