@@ -66,7 +66,6 @@ class RepositoriesVM: NSObject {
     private func performAction(forViewState state: RepositoryView.ViewState) {
         switch state {
         case .loadMore:
-            self.currentPage += 1
             self.loadContent()
         case .refresh:
             self.currentPage = 1
@@ -90,6 +89,8 @@ class RepositoriesVM: NSObject {
         } else {
             content = repositories.value + repos
         }
+        
+        currentPage += 1
         
         repositories.accept(content)
         state.accept(.loaded)

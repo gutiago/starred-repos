@@ -24,6 +24,7 @@ class RepositoryView: UIView {
     
     private let viewState = PublishSubject<ViewState>()
     
+    private let refreshControl = UIRefreshControl()
     private let tableView = UITableView()
     private let vNoInternet = NoInternetView()
     private let ivLoading: UIImageView = {
@@ -66,6 +67,7 @@ class RepositoryView: UIView {
         tableView.estimatedRowHeight = 80.0
         tableView.showsHorizontalScrollIndicator = false
         tableView.separatorStyle = .none
+        tableView.refreshControl = refreshControl
         
         ivLoading.isHidden = true
         ivLoading.contentMode = .scaleAspectFit
@@ -107,7 +109,11 @@ class RepositoryView: UIView {
     // MARK: - Bind
     
     func bindTable(_ observable: Observable<[Repository]>) {
-        observable.bind(to: tableView
+        observable
+            .do(onNext: { [unowned self] (_) in
+                self.refreshControl.endRefreshing()
+            })
+            .bind(to: tableView
             .rx
             .items(cellIdentifier: RepositoryCell.Identifier,
                    cellType: RepositoryCell.self)) {
@@ -143,11 +149,13 @@ class RepositoryView: UIView {
                 
                 if self.isNearBottomEdge(contentOffset: offSet) {
                     self.viewState.onNext(.loadMore)
-                } else if self.isSupposedToRefresh(contentOffset: offSet) {
-                    self.viewState.onNext(.refresh)
                 }
                 
             }).disposed(by: disposeBag)
+        
+        refreshControl.rx.controlEvent(.valueChanged).subscribe(onNext: { [unowned self] (_) in
+            self.viewState.onNext(.refresh)
+        }).disposed(by: disposeBag)
     }
     
     private func isLoadingHidden(forState state: State) -> Bool {
@@ -161,11 +169,6 @@ class RepositoryView: UIView {
         let contentSize = tableView.contentSize
         let calculatedSize = contentOffset.y + self.frame.size.height
         return calculatedSize > contentSize.height
-    }
-    
-    private func isSupposedToRefresh(contentOffset: CGPoint) -> Bool {
-        let edgeOffset: CGFloat = -50.0
-        return contentOffset.y < edgeOffset
     }
     
 }
