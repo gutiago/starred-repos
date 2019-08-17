@@ -10,16 +10,29 @@ import UIKit
 
 class RepositoriesViewController: UIViewController {
 
-    let repo = RepositoryProvider()
+    private let viewModel = RepositoriesVM()
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .default
+    }
+    
+    var repositoryView: RepositoryView {
+        return self.view as! RepositoryView
+    }
+    
+    override func loadView() {
+        view = RepositoryView()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        repo.searchStarredRepositories(atPage: 1, andSearchSize: 10).subscribe(onNext: { (repos) in
-            print(repos)
-        }, onError: { (error) in
-            print(error)
-        })
+        bindContent()
+        viewModel.loadContent()
+    }
+    
+    // MARK: - Bind
+    private func bindContent() {
+        repositoryView.bindTable(viewModel.repositoryObservable)
     }
 }
 

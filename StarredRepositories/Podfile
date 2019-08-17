@@ -11,7 +11,7 @@ target 'StarredRepositories' do
   pod 'RxCocoa'
   pod 'RxDataSources'
   pod 'Kingfisher'
-  pod 'ReachabilitySwift'
+  pod 'SnapKit', '~> 5.0.0'
 
   target 'StarredRepositoriesTests' do
     inherit! :search_paths

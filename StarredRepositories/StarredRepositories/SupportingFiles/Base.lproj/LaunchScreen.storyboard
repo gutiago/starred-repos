@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,7 +16,20 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="git_splash_logo" translatesAutoresizingMaskIntoConstraints="NO" id="o3M-jw-xPN">
+                                <rect key="frame" x="20" y="128" width="374" height="640"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="o3M-jw-xPN" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="20" id="74h-cY-AJq"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="o3M-jw-xPN" secondAttribute="bottom" constant="20" id="9E7-Ri-Q03"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="o3M-jw-xPN" secondAttribute="trailing" constant="20" id="R4B-bp-NQf"/>
+                            <constraint firstItem="o3M-jw-xPN" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="SIP-wo-bHB"/>
+                            <constraint firstItem="o3M-jw-xPN" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="fPy-dS-fXG"/>
+                            <constraint firstItem="o3M-jw-xPN" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="oys-Ia-TRR"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -26,4 +38,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="git_splash_logo" width="640" height="640"/>
+    </resources>
 </document>

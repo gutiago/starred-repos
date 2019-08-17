@@ -21,8 +21,14 @@
 		ECD2A8E4230785B800AE0D77 /* RepositoryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD2A8E3230785B800AE0D77 /* RepositoryProvider.swift */; };
 		ECD2A8E72307872B00AE0D77 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD2A8E62307872A00AE0D77 /* Repository.swift */; };
 		ECD2A8E9230787D300AE0D77 /* Owner.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD2A8E8230787D300AE0D77 /* Owner.swift */; };
-		ECD2A8EC2307894000AE0D77 /* ObservableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD2A8EB2307894000AE0D77 /* ObservableType.swift */; };
+		ECD2A8EC2307894000AE0D77 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD2A8EB2307894000AE0D77 /* UIFont.swift */; };
 		ECD2A8EE2307897F00AE0D77 /* GitResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD2A8ED2307897F00AE0D77 /* GitResult.swift */; };
+		ECD545F023078FA200A99CAC /* RepositoriesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD545EF23078FA200A99CAC /* RepositoriesVM.swift */; };
+		ECD545F323079B3D00A99CAC /* RepositoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD545F223079B3D00A99CAC /* RepositoryView.swift */; };
+		ECD545F62307A0BD00A99CAC /* RepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD545F52307A0BD00A99CAC /* RepositoryCell.swift */; };
+		ECD545FB2307A52C00A99CAC /* Quicksand-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ECD545F82307A52C00A99CAC /* Quicksand-Medium.ttf */; };
+		ECD545FC2307A52C00A99CAC /* Quicksand-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ECD545F92307A52C00A99CAC /* Quicksand-Light.ttf */; };
+		ECD545FD2307A52C00A99CAC /* Quicksand-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ECD545FA2307A52C00A99CAC /* Quicksand-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,8 +74,14 @@
 		ECD2A8E3230785B800AE0D77 /* RepositoryProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryProvider.swift; sourceTree = "<group>"; };
 		ECD2A8E62307872A00AE0D77 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		ECD2A8E8230787D300AE0D77 /* Owner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Owner.swift; sourceTree = "<group>"; };
-		ECD2A8EB2307894000AE0D77 /* ObservableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableType.swift; sourceTree = "<group>"; };
+		ECD2A8EB2307894000AE0D77 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		ECD2A8ED2307897F00AE0D77 /* GitResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitResult.swift; sourceTree = "<group>"; };
+		ECD545EF23078FA200A99CAC /* RepositoriesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesVM.swift; sourceTree = "<group>"; };
+		ECD545F223079B3D00A99CAC /* RepositoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryView.swift; sourceTree = "<group>"; };
+		ECD545F52307A0BD00A99CAC /* RepositoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCell.swift; sourceTree = "<group>"; };
+		ECD545F82307A52C00A99CAC /* Quicksand-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Medium.ttf"; sourceTree = "<group>"; };
+		ECD545F92307A52C00A99CAC /* Quicksand-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Light.ttf"; sourceTree = "<group>"; };
+		ECD545FA2307A52C00A99CAC /* Quicksand-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Regular.ttf"; sourceTree = "<group>"; };
 		F482C621E6CFDE792BF026B8 /* Pods-StarredRepositoriesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarredRepositoriesUITests.debug.xcconfig"; path = "Target Support Files/Pods-StarredRepositoriesUITests/Pods-StarredRepositoriesUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -152,6 +164,7 @@
 				ECD2A8AF23077ED000AE0D77 /* AppDelegate.swift */,
 				ECD2A8DE230782A700AE0D77 /* API */,
 				ECD2A8E0230782D600AE0D77 /* Controllers */,
+				ECD545F123079B1200A99CAC /* View */,
 				ECD2A8E5230786D000AE0D77 /* Model */,
 				ECD2A8DF230782BE00AE0D77 /* SupportingFiles */,
 			);
@@ -188,6 +201,7 @@
 		ECD2A8DF230782BE00AE0D77 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				ECD545F72307A4D600A99CAC /* Fonts */,
 				ECD2A8EA2307892C00AE0D77 /* Extension */,
 				ECD2A8B623077ED100AE0D77 /* Assets.xcassets */,
 				ECD2A8B823077ED100AE0D77 /* LaunchScreen.storyboard */,
@@ -201,6 +215,7 @@
 			children = (
 				ECD2A8B323077ED000AE0D77 /* Main.storyboard */,
 				ECD2A8B123077ED000AE0D77 /* RepositoriesViewController.swift */,
+				ECD545EF23078FA200A99CAC /* RepositoriesVM.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -218,9 +233,36 @@
 		ECD2A8EA2307892C00AE0D77 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				ECD2A8EB2307894000AE0D77 /* ObservableType.swift */,
+				ECD2A8EB2307894000AE0D77 /* UIFont.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		ECD545F123079B1200A99CAC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ECD545F42307A0A000A99CAC /* Cell */,
+				ECD545F223079B3D00A99CAC /* RepositoryView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ECD545F42307A0A000A99CAC /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				ECD545F52307A0BD00A99CAC /* RepositoryCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		ECD545F72307A4D600A99CAC /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				ECD545F92307A52C00A99CAC /* Quicksand-Light.ttf */,
+				ECD545F82307A52C00A99CAC /* Quicksand-Medium.ttf */,
+				ECD545FA2307A52C00A99CAC /* Quicksand-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -332,8 +374,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECD2A8BA23077ED100AE0D77 /* LaunchScreen.storyboard in Resources */,
+				ECD545FD2307A52C00A99CAC /* Quicksand-Regular.ttf in Resources */,
+				ECD545FB2307A52C00A99CAC /* Quicksand-Medium.ttf in Resources */,
 				ECD2A8B723077ED100AE0D77 /* Assets.xcassets in Resources */,
 				ECD2A8B523077ED000AE0D77 /* Main.storyboard in Resources */,
+				ECD545FC2307A52C00A99CAC /* Quicksand-Light.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,12 +490,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECD2A8B223077ED000AE0D77 /* RepositoriesViewController.swift in Sources */,
-				ECD2A8EC2307894000AE0D77 /* ObservableType.swift in Sources */,
+				ECD2A8EC2307894000AE0D77 /* UIFont.swift in Sources */,
 				ECD2A8E9230787D300AE0D77 /* Owner.swift in Sources */,
+				ECD545F023078FA200A99CAC /* RepositoriesVM.swift in Sources */,
 				ECD2A8E2230783A700AE0D77 /* GitAPI.swift in Sources */,
 				ECD2A8E72307872B00AE0D77 /* Repository.swift in Sources */,
+				ECD545F62307A0BD00A99CAC /* RepositoryCell.swift in Sources */,
 				ECD2A8EE2307897F00AE0D77 /* GitResult.swift in Sources */,
 				ECD2A8E4230785B800AE0D77 /* RepositoryProvider.swift in Sources */,
+				ECD545F323079B3D00A99CAC /* RepositoryView.swift in Sources */,
 				ECD2A8B023077ED000AE0D77 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
