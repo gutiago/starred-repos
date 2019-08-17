@@ -11,12 +11,18 @@
 		C3908AC6F1BE2F194848B1F4 /* Pods_StarredRepositoriesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC6C61BE2692568CB1238F4C /* Pods_StarredRepositoriesTests.framework */; };
 		E753CD2A9F52392999E3266E /* Pods_StarredRepositoriesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6641575053FBEB9CFAA46570 /* Pods_StarredRepositoriesUITests.framework */; };
 		ECD2A8B023077ED000AE0D77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD2A8AF23077ED000AE0D77 /* AppDelegate.swift */; };
-		ECD2A8B223077ED000AE0D77 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD2A8B123077ED000AE0D77 /* ViewController.swift */; };
+		ECD2A8B223077ED000AE0D77 /* RepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD2A8B123077ED000AE0D77 /* RepositoriesViewController.swift */; };
 		ECD2A8B523077ED000AE0D77 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECD2A8B323077ED000AE0D77 /* Main.storyboard */; };
 		ECD2A8B723077ED100AE0D77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECD2A8B623077ED100AE0D77 /* Assets.xcassets */; };
 		ECD2A8BA23077ED100AE0D77 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECD2A8B823077ED100AE0D77 /* LaunchScreen.storyboard */; };
 		ECD2A8C523077ED200AE0D77 /* StarredRepositoriesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD2A8C423077ED200AE0D77 /* StarredRepositoriesTests.swift */; };
 		ECD2A8D023077ED200AE0D77 /* StarredRepositoriesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD2A8CF23077ED200AE0D77 /* StarredRepositoriesUITests.swift */; };
+		ECD2A8E2230783A700AE0D77 /* GitAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD2A8E1230783A600AE0D77 /* GitAPI.swift */; };
+		ECD2A8E4230785B800AE0D77 /* RepositoryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD2A8E3230785B800AE0D77 /* RepositoryProvider.swift */; };
+		ECD2A8E72307872B00AE0D77 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD2A8E62307872A00AE0D77 /* Repository.swift */; };
+		ECD2A8E9230787D300AE0D77 /* Owner.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD2A8E8230787D300AE0D77 /* Owner.swift */; };
+		ECD2A8EC2307894000AE0D77 /* ObservableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD2A8EB2307894000AE0D77 /* ObservableType.swift */; };
+		ECD2A8EE2307897F00AE0D77 /* GitResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD2A8ED2307897F00AE0D77 /* GitResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +53,7 @@
 		CC6C61BE2692568CB1238F4C /* Pods_StarredRepositoriesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarredRepositoriesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECD2A8AC23077ED000AE0D77 /* StarredRepositories.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarredRepositories.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECD2A8AF23077ED000AE0D77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		ECD2A8B123077ED000AE0D77 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		ECD2A8B123077ED000AE0D77 /* RepositoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesViewController.swift; sourceTree = "<group>"; };
 		ECD2A8B423077ED000AE0D77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ECD2A8B623077ED100AE0D77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ECD2A8B923077ED100AE0D77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,6 +64,12 @@
 		ECD2A8CB23077ED200AE0D77 /* StarredRepositoriesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StarredRepositoriesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECD2A8CF23077ED200AE0D77 /* StarredRepositoriesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarredRepositoriesUITests.swift; sourceTree = "<group>"; };
 		ECD2A8D123077ED200AE0D77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECD2A8E1230783A600AE0D77 /* GitAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitAPI.swift; sourceTree = "<group>"; };
+		ECD2A8E3230785B800AE0D77 /* RepositoryProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryProvider.swift; sourceTree = "<group>"; };
+		ECD2A8E62307872A00AE0D77 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		ECD2A8E8230787D300AE0D77 /* Owner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Owner.swift; sourceTree = "<group>"; };
+		ECD2A8EB2307894000AE0D77 /* ObservableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableType.swift; sourceTree = "<group>"; };
+		ECD2A8ED2307897F00AE0D77 /* GitResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitResult.swift; sourceTree = "<group>"; };
 		F482C621E6CFDE792BF026B8 /* Pods-StarredRepositoriesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarredRepositoriesUITests.debug.xcconfig"; path = "Target Support Files/Pods-StarredRepositoriesUITests/Pods-StarredRepositoriesUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -138,11 +150,10 @@
 			isa = PBXGroup;
 			children = (
 				ECD2A8AF23077ED000AE0D77 /* AppDelegate.swift */,
-				ECD2A8B123077ED000AE0D77 /* ViewController.swift */,
-				ECD2A8B323077ED000AE0D77 /* Main.storyboard */,
-				ECD2A8B623077ED100AE0D77 /* Assets.xcassets */,
-				ECD2A8B823077ED100AE0D77 /* LaunchScreen.storyboard */,
-				ECD2A8BB23077ED100AE0D77 /* Info.plist */,
+				ECD2A8DE230782A700AE0D77 /* API */,
+				ECD2A8E0230782D600AE0D77 /* Controllers */,
+				ECD2A8E5230786D000AE0D77 /* Model */,
+				ECD2A8DF230782BE00AE0D77 /* SupportingFiles */,
 			);
 			path = StarredRepositories;
 			sourceTree = "<group>";
@@ -163,6 +174,53 @@
 				ECD2A8D123077ED200AE0D77 /* Info.plist */,
 			);
 			path = StarredRepositoriesUITests;
+			sourceTree = "<group>";
+		};
+		ECD2A8DE230782A700AE0D77 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				ECD2A8E1230783A600AE0D77 /* GitAPI.swift */,
+				ECD2A8E3230785B800AE0D77 /* RepositoryProvider.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		ECD2A8DF230782BE00AE0D77 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				ECD2A8EA2307892C00AE0D77 /* Extension */,
+				ECD2A8B623077ED100AE0D77 /* Assets.xcassets */,
+				ECD2A8B823077ED100AE0D77 /* LaunchScreen.storyboard */,
+				ECD2A8BB23077ED100AE0D77 /* Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		ECD2A8E0230782D600AE0D77 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				ECD2A8B323077ED000AE0D77 /* Main.storyboard */,
+				ECD2A8B123077ED000AE0D77 /* RepositoriesViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		ECD2A8E5230786D000AE0D77 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ECD2A8ED2307897F00AE0D77 /* GitResult.swift */,
+				ECD2A8E62307872A00AE0D77 /* Repository.swift */,
+				ECD2A8E8230787D300AE0D77 /* Owner.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		ECD2A8EA2307892C00AE0D77 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				ECD2A8EB2307894000AE0D77 /* ObservableType.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -386,7 +444,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECD2A8B223077ED000AE0D77 /* ViewController.swift in Sources */,
+				ECD2A8B223077ED000AE0D77 /* RepositoriesViewController.swift in Sources */,
+				ECD2A8EC2307894000AE0D77 /* ObservableType.swift in Sources */,
+				ECD2A8E9230787D300AE0D77 /* Owner.swift in Sources */,
+				ECD2A8E2230783A700AE0D77 /* GitAPI.swift in Sources */,
+				ECD2A8E72307872B00AE0D77 /* Repository.swift in Sources */,
+				ECD2A8EE2307897F00AE0D77 /* GitResult.swift in Sources */,
+				ECD2A8E4230785B800AE0D77 /* RepositoryProvider.swift in Sources */,
 				ECD2A8B023077ED000AE0D77 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -565,7 +629,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CH687DDWFY;
-				INFOPLIST_FILE = StarredRepositories/Info.plist;
+				INFOPLIST_FILE = StarredRepositories/SupportingFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -585,7 +649,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CH687DDWFY;
-				INFOPLIST_FILE = StarredRepositories/Info.plist;
+				INFOPLIST_FILE = StarredRepositories/SupportingFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
