@@ -29,6 +29,7 @@
 		ECD545FB2307A52C00A99CAC /* Quicksand-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ECD545F82307A52C00A99CAC /* Quicksand-Medium.ttf */; };
 		ECD545FC2307A52C00A99CAC /* Quicksand-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ECD545F92307A52C00A99CAC /* Quicksand-Light.ttf */; };
 		ECD545FD2307A52C00A99CAC /* Quicksand-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ECD545FA2307A52C00A99CAC /* Quicksand-Regular.ttf */; };
+		ECD545FF2307C0B700A99CAC /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD545FE2307C0B700A99CAC /* UIColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		ECD545F82307A52C00A99CAC /* Quicksand-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Medium.ttf"; sourceTree = "<group>"; };
 		ECD545F92307A52C00A99CAC /* Quicksand-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Light.ttf"; sourceTree = "<group>"; };
 		ECD545FA2307A52C00A99CAC /* Quicksand-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Regular.ttf"; sourceTree = "<group>"; };
+		ECD545FE2307C0B700A99CAC /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		F482C621E6CFDE792BF026B8 /* Pods-StarredRepositoriesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarredRepositoriesUITests.debug.xcconfig"; path = "Target Support Files/Pods-StarredRepositoriesUITests/Pods-StarredRepositoriesUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -234,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				ECD2A8EB2307894000AE0D77 /* UIFont.swift */,
+				ECD545FE2307C0B700A99CAC /* UIColor.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -490,6 +493,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECD2A8B223077ED000AE0D77 /* RepositoriesViewController.swift in Sources */,
+				ECD545FF2307C0B700A99CAC /* UIColor.swift in Sources */,
 				ECD2A8EC2307894000AE0D77 /* UIFont.swift in Sources */,
 				ECD2A8E9230787D300AE0D77 /* Owner.swift in Sources */,
 				ECD545F023078FA200A99CAC /* RepositoriesVM.swift in Sources */,

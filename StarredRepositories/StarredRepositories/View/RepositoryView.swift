@@ -39,16 +39,18 @@ class RepositoryView: UIView {
     
     // MARK: - Layout
     private func createSubviews() {
-        self.addSubview(tableView)
-        self.addSubview(ivLoading)
         
+        tableView.register(RepositoryCell.self, forCellReuseIdentifier: RepositoryCell.Identifier)
         tableView.rowHeight = 80.0
+        tableView.estimatedRowHeight = 80.0
         tableView.showsHorizontalScrollIndicator = false
         tableView.separatorStyle = .none
-        tableView.register(RepositoryCell.self, forCellReuseIdentifier: RepositoryCell.Identifier)
         
         ivLoading.isHidden = true
         ivLoading.contentMode = .scaleAspectFit
+        
+        self.addSubview(tableView)
+        self.addSubview(ivLoading)
         
         addConstraints()
     }
@@ -56,7 +58,7 @@ class RepositoryView: UIView {
     private func addConstraints() {
         tableView.snp.makeConstraints { (maker) in
             maker.top.equalTo(self.safeAreaLayoutGuide.snp.top)
-            maker.bottom.equalTo(self.safeAreaLayoutGuide.snp.top)
+            maker.bottom.equalTo(self.safeAreaLayoutGuide.snp.bottom)
             maker.left.equalTo(self)
             maker.right.equalTo(self)
         }
@@ -69,6 +71,7 @@ class RepositoryView: UIView {
     }
     
     // MARK: - Bind
+    var repo = [Repository]()
     func bindTable(_ observable: Observable<[Repository]>) {
         observable.bind(to: tableView
                 .rx
@@ -78,9 +81,6 @@ class RepositoryView: UIView {
                         cell.configure(repository)
             }
             .disposed(by: disposeBag)
-        
     }
 
 }
-
-
