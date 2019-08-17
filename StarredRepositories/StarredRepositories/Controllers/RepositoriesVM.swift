@@ -10,14 +10,14 @@ import RxSwift
 import RxCocoa
 
 enum State {
-    case initial, loading, loaded, failed
+    case none, loading, loaded, failed
 }
 
 class RepositoriesVM: NSObject {
     
     // MARK: - Output
-    var repositoryObservable: Observable<[Repository]> {
-        return repositories.asObservable()
+    var repositoryObservable: Driver<[Repository]> {
+        return repositories.asDriver()
     }
     
     var stateDriver: Driver<State> {
@@ -25,7 +25,7 @@ class RepositoriesVM: NSObject {
     }
     
     private let repositories = BehaviorRelay<[Repository]>(value: [])
-    private let state = BehaviorRelay<State>(value: .initial)
+    private let state = BehaviorRelay<State>(value: .none)
     
     private let repositoryProvider = RepositoryProvider()
     private let disposeBag = DisposeBag()
@@ -102,7 +102,7 @@ class RepositoriesVM: NSObject {
         if repositories.value.count == 0 {
             state.accept(.failed)
         } else {
-            state.accept(.initial)
+            state.accept(.none)
         }
     }
     

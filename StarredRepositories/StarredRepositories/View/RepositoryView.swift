@@ -108,12 +108,12 @@ class RepositoryView: UIView {
     
     // MARK: - Bind
     
-    func bindTable(_ observable: Observable<[Repository]>) {
-        observable
+    func bindTable(_ driver: Driver<[Repository]>) {
+        driver
             .do(onNext: { [unowned self] (_) in
                 self.refreshControl.endRefreshing()
             })
-            .bind(to: tableView
+            .drive(tableView
             .rx
             .items(cellIdentifier: RepositoryCell.Identifier,
                    cellType: RepositoryCell.self)) {
