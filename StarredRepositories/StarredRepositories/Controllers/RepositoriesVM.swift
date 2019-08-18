@@ -24,6 +24,10 @@ class RepositoriesVM: NSObject {
         return state.asDriver()
     }
     
+    var repositoriesCount: Int {
+        return repositories.value.count
+    }
+    
     private let repositories = BehaviorRelay<[Repository]>(value: [])
     private let state = BehaviorRelay<State>(value: .none)
     
@@ -32,7 +36,7 @@ class RepositoriesVM: NSObject {
     private let SEARCH_SIZE = 30
     private let MAX_SEARCH_THRESHOLD = 1000
     
-    private var currentPage = 0
+    private var currentPage = 1
     private var isLoading = false
     
     // MARK: - Load

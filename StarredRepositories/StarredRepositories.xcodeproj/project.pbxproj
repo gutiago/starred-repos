@@ -32,6 +32,7 @@
 		ECD545FF2307C0B700A99CAC /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD545FE2307C0B700A99CAC /* UIColor.swift */; };
 		ECD54601230844BB00A99CAC /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD54600230844BB00A99CAC /* UIView.swift */; };
 		ECD54603230848C800A99CAC /* NoInternetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD54602230848C800A99CAC /* NoInternetView.swift */; };
+		ECD546052309AD6F00A99CAC /* StarredRepositoriesSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD546042309AD6F00A99CAC /* StarredRepositoriesSpec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,7 @@
 		ECD545FE2307C0B700A99CAC /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		ECD54600230844BB00A99CAC /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		ECD54602230848C800A99CAC /* NoInternetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetView.swift; sourceTree = "<group>"; };
+		ECD546042309AD6F00A99CAC /* StarredRepositoriesSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarredRepositoriesSpec.swift; sourceTree = "<group>"; };
 		F482C621E6CFDE792BF026B8 /* Pods-StarredRepositoriesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarredRepositoriesUITests.debug.xcconfig"; path = "Target Support Files/Pods-StarredRepositoriesUITests/Pods-StarredRepositoriesUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -181,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				ECD2A8C423077ED200AE0D77 /* StarredRepositoriesTests.swift */,
+				ECD546042309AD6F00A99CAC /* StarredRepositoriesSpec.swift */,
 				ECD2A8C623077ED200AE0D77 /* Info.plist */,
 			);
 			path = StarredRepositoriesTests;
@@ -304,6 +307,7 @@
 				ECD2A8BC23077ED200AE0D77 /* Sources */,
 				ECD2A8BD23077ED200AE0D77 /* Frameworks */,
 				ECD2A8BE23077ED200AE0D77 /* Resources */,
+				4834C45F06F96A851018853E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -447,6 +451,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-StarredRepositories/Pods-StarredRepositories-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		4834C45F06F96A851018853E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-StarredRepositoriesTests/Pods-StarredRepositoriesTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-StarredRepositoriesTests/Pods-StarredRepositoriesTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-StarredRepositoriesTests/Pods-StarredRepositoriesTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		62247D116F8CEB19FBF20E9B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -519,6 +540,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECD546052309AD6F00A99CAC /* StarredRepositoriesSpec.swift in Sources */,
 				ECD2A8C523077ED200AE0D77 /* StarredRepositoriesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
